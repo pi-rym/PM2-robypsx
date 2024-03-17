@@ -1,14 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h1>Proyecto de M2</h1>
 
-    <script src="./scripts/tempData.js"></script>
-    <script src="./scripts/index.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Palomeras</title>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+  <header class="bg-dark text-light py-3">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-12 col-md-6">
+          <a href="index.html" class="text-decoration-none">
+            <h1 class="mb-0">Palomeras</h1>
+          </a>
+        </div>
+        <div class="col-12 col-md-6 text-md-end mt-3 mt-md-0">
+          <nav class="nav">
+            <a class="nav-link" href="historia.html">Historia del Cine</a>
+            <a class="nav-link" href="recomendadas.html">Webs Recomendadas</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+  <section id="peliculas-recomendadas" class="container py-5">
+    <h2 class="pb-3">Películas recomendadas</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+    </div>
+  </section>
+  <footer class="container-fluid p-3 bg-dark text-light text-center">
+    <p>&copy; 2024 Carlos Mercado Alvarez para Henry M2 WebFT48</p>
+  </footer>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./scripts/tempData.js"></script>
+  <script src="./scripts/index.js"></script>
+</body>
+
 </html>

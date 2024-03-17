@@ -1,0 +1,31 @@
+.card {
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* Estilo básico del título */
+h1 {
+  display: inline-flex;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+/* Estilo de la animación al pasar el mouse */
+h1:hover {
+  transform: scale(1.1);
+  color: #ff6347; /* Cambia el color al pasar el mouse */
+  
+}
+
+.nav-link {
+  display: inline-flex;
+  color:white;
+  transition: transform 0.3s ease;
+}
+.nav-link:hover {
+  color: #ff6347; /* Cambia el color al pasar el mouse */
+  transform: scale(1.1);
+}
