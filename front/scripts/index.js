@@ -1,10 +1,12 @@
-console.log(tempData);
+// console.log(tempData);
 // Espera a que el DOM esté completamente cargado
 document.addEventListener("DOMContentLoaded", function () {
-    const peliculasContainer = document.getElementById("peliculas-recomendadas").querySelector(".row");
+    const moviesContainer = document.getElementById("movies-recomendadas").querySelector(".row");
 
     // Iterar sobre el array tempData
-    tempData.forEach(pelicula => {
+    //tempData.forEach(movie => {
+    function renderMovies(movies) { //renderizar movies
+        movies.forEach( movie => { 
         // Crear elementos HTML dinámicamente
         const col = document.createElement("div");
         col.classList.add("col");
@@ -14,32 +16,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const img = document.createElement("img");
         img.classList.add("card-img-top");
-        img.src = pelicula.poster;
-        img.alt = pelicula.title;
+        img.src = movie.poster;
+        img.alt = movie.title;
 
         const cardBody = document.createElement("div");
         cardBody.classList.add("card-body");
 
         const title = document.createElement("h3");
         title.classList.add("card-title");
-        title.textContent = pelicula.title;
+        title.textContent = movie.title;
 
         const ul = document.createElement("ul");
         ul.classList.add("list-group", "list-group-flush");
 
-        const yearLi = createListItem("Año", pelicula.year);
-        const directorLi = createListItem("Director", pelicula.director);
-        const durationLi = createListItem("Duración", pelicula.duration);
-        const genreLi = createListItem("Género", pelicula.genre.join(", "));
-        const rateLi = createListItem("Puntuación", pelicula.rate);
+        const yearLi = createListItem("Año", movie.year);
+        const directorLi = createListItem("Director", movie.director);
+        const durationLi = createListItem("Duración", movie.duration);
+        const genreLi = createListItem("Género", movie.genre.join(", "));
+        const rateLi = createListItem("Puntuación", movie.rate);
 
         // Adjuntar elementos creados al DOM
         ul.append(yearLi, directorLi, durationLi, genreLi, rateLi);
         cardBody.append(title, ul);
         card.append(img, cardBody);
         col.appendChild(card);
-        peliculasContainer.appendChild(col);
+        moviesContainer.appendChild(col);
     });
+    }
 
     // Función auxiliar para crear elementos de lista
     function createListItem(label, value) {
@@ -48,4 +51,17 @@ document.addEventListener("DOMContentLoaded", function () {
         li.innerHTML = `${label}: <span class="badge bg-secondary">${value}</span>`;
         return li;
     }
+
+    // Peticion
+    $.ajax({
+        url: "https://students-api.2.us-1.fl0.io/movies",
+        dataType: "json",
+        success: function (data) {
+          renderMovies(data);
+        },
+        error: function (error) {
+          console.error("Error fetching movies:", error);
+          $("#error-message").removeClass("d-none");
+        }
+      });
 });
