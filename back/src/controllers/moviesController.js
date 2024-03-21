@@ -42,3 +42,31 @@ module.exports = {
     testController,
     getMovies,
 };
+
+// module.exports = {
+//     getMovies: async (req, res) => {
+//          try {
+//              const movies = await movieService.getMovies(); // Debes usar await para esperar la respuesta del servicio
+//              res.status(200).json(peliculas);
+//          } catch (error) {
+//              console.error('Error al obtener las películas:', error);
+//              res.status(500).json({ error: 'Error interno del servidor' });
+//          }
+//      },
+ 
+//      createMovie: async (req, res) => {
+//          try {
+//              const {title, year, director, duration, genre, rate, poster} = req.body;
+//              // console.log(title);
+//              const newMovie = await movieService.createMovie({title, year, director, duration, genre, rate, poster});
+//              res.status(201).json(newMovie);
+//              console.log("se creo correctamente");
+//          } catch (error) {
+//              res.status(500).json({
+//                  error: "Error al crear movie",
+//              });
+//          }
+ 
+//      }
+     
+//  };
