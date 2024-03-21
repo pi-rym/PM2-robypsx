@@ -16,7 +16,7 @@ const axios = require("axios")
 //   });
 
 const fetchData = () => {
-  axios.get("https://students-api.2.us-1.fl0.io/movies")
+  axios.get("http://localhost:3000/movies")
     .then((response) => {
       renderCards(response.data);
     })
